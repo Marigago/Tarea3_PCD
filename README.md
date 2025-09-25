@@ -85,7 +85,7 @@ Envía datos en el cuerpo (body) de la petición.
 
 ### Ejemplo
 
-1) **POST** `/api/v1/users/` — Crear usuario  
+1) #### **POST** `/api/v1/users/` — Crear usuario  
    - Example Body (JSON): 
      ```
         {
@@ -105,19 +105,19 @@ Envía datos en el cuerpo (body) de la petición.
      - `201 Created`
      - `409 Conflict` si `user_email` ya existe
 
-2) **PUT** `/api/v1/users/{user_id}` — Actualizar usuario por id  
+2) #### **PUT** `/api/v1/users/{user_id}` — Actualizar usuario por id  
    - Body (JSON): campos opcionales a modificar.
    - Respuestas:
      - `200 OK`
      - `404 Not Found` si no existe
      - `409 Conflict` si `user_email` choca con otro
 
-3) **GET** `/api/v1/users/{user_id}` — Obtener usuario por id  
+3) #### **GET** `/api/v1/users/{user_id}` — Obtener usuario por id  
    - Respuestas:
      - `200 OK`
      - `404 Not Found` si no existe
 
-4) **DELETE** `/api/v1/users/{user_id}` — Eliminar usuario por id  
+4) #### **DELETE** `/api/v1/users/{user_id}` — Eliminar usuario por id  
    - Respuestas:
      - `204 No Content`
      - `404 Not Found` si no existe
