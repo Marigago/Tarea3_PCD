@@ -99,39 +99,36 @@ La app se sirve en:
 
 > Reemplaza `API_KEY` por el valor real de tu `.env`.
 
-**Crear (POST)**
-curl -X POST http://127.0.0.1:8000/api/v1/users/
--H "Content-Type: application/json"
--H "X-API-Key: "API_KEY"
--d '{
-"user_name": "María Fernanda Ruiz",
-"user_id": 1001,
-"user_email": "mfernanda.ruiz@gmail.com",
-"age": 27,
-"recommendations": ["libros","viajes","café"],
-"ZIP": "44100"
-}'
+# Crear (POST)
+curl -X POST http://127.0.0.1:8000/api/v1/users/ \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-Key: API_KEY_AQUI' \
+  -d '{
+    "user_name": "María Fernanda Ruiz",
+    "user_id": 1001,
+    "user_email": "mfernanda.ruiz@gmail.com",
+    "age": 27,
+    "recommendations": ["libros","viajes","café"],
+    "ZIP": "44100"
+  }'
 
+# Obtener (GET)
+curl -H 'X-API-Key: API_KEY_AQUI' \
+  http://127.0.0.1:8000/api/v1/users/1001
 
-**Obtener (GET)**
-curl -H "X-API-Key: "API_KEY"
-http://127.0.0.1:8000/api/v1/users/1001
+# Actualizar (PUT)
+curl -X PUT http://127.0.0.1:8000/api/v1/users/1001 \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-Key: API_KEY_AQUI' \
+  -d '{
+    "user_name": "M. Fernanda Ruiz",
+    "recommendations": ["viajes","café"]
+  }'
 
-
-**Actualizar (PUT)**
-curl -X PUT http://127.0.0.1:8000/api/v1/users/1001
--H "Content-Type: application/json"
--H "X-API-Key: "API_KEY"
--d '{
-"user_name": "M. Fernanda Ruiz",
-"recommendations": ["viajes","café"]
-}'
-
-
-**Eliminar (DELETE)**
-curl -X DELETE
--H "X-API-Key: "API_KEY"
-http://127.0.0.1:8000/api/v1/users/1001
+# Eliminar (DELETE)
+curl -X DELETE \
+  -H 'X-API-Key: API_KEY_AQUI' \
+  http://127.0.0.1:8000/api/v1/users/1001
 
 
 ---
