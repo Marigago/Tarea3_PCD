@@ -52,6 +52,34 @@ La app se sirve en:
 
 ---
 
+`curl`
+Programa de línea de comandos para hacer peticiones HTTP (y otros protocolos). Permite llamar a tus endpoints desde la terminal.
+
+`-X` (method)
+Indica el método HTTP a usar. Ejemplos: `-X GET`, `-X POST`, `-X PUT`, `-X DELETE`.
+
+Nota: si usas `-d` sin especificar `-X`, curl asume `POST`. Para enviar cuerpo con `PUT`, debes poner `-X PUT`.
+
+`-H` (header)
+Añade un header a la petición, con el formato `Nombre: valor`.
+Puedes repetir `-H` varias veces para múltiples headers.
+
+Ejemplos:
+
+- `-H 'X-API-Key: API_KEY_AQUI'` → envía el API Key.
+
+- `-H 'Content-Type: application/json'` → indica que el cuerpo es JSON.
+
+`-d` (data)
+Envía datos en el cuerpo (body) de la petición.
+
+- Para JSON, combina con `-H 'Content-Type: application/json'` y pasa el JSON como cadena
+
+- Si omites `-X`, `curl` hará POST automáticamente; para otros métodos con body, usa `-X PUT`.
+
+---
+
+
 ## Endpoints (prefijo `/api/v1`)
 
 1) **POST** `/api/v1/users/` — Crear usuario  
