@@ -52,6 +52,11 @@ La app se sirve en:
 
 ---
 
+
+## Endpoints (prefijo `/api/v1`)
+
+### Explicación 
+
 `curl`
 Programa de línea de comandos para hacer peticiones HTTP (y otros protocolos). Permite llamar a tus endpoints desde la terminal.
 
@@ -77,10 +82,8 @@ Envía datos en el cuerpo (body) de la petición.
 
 - Si omites `-X`, `curl` hará POST automáticamente; para otros métodos con body, usa `-X PUT`.
 
----
 
-
-## Endpoints (prefijo `/api/v1`)
+### Ejemplo
 
 1) **POST** `/api/v1/users/` — Crear usuario  
    - Example Body (JSON): 
