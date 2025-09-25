@@ -55,34 +55,6 @@ La app se sirve en:
 
 ## Endpoints (prefijo `/api/v1`)
 
-### Explicación 
-
-`curl`
-Programa de línea de comandos para hacer peticiones HTTP (y otros protocolos). Permite llamar a tus endpoints desde la terminal.
-
-`-X` (method)
-Indica el método HTTP a usar. Ejemplos: `-X GET`, `-X POST`, `-X PUT`, `-X DELETE`.
-
-Nota: si usas `-d` sin especificar `-X`, curl asume `POST`. Para enviar cuerpo con `PUT`, debes poner `-X PUT`.
-
-`-H` (header)
-Añade un header a la petición, con el formato `Nombre: valor`.
-Puedes repetir `-H` varias veces para múltiples headers.
-
-Ejemplos:
-
-- `-H 'X-API-Key: API_KEY_AQUI'` → envía el API Key.
-
-- `-H 'Content-Type: application/json'` → indica que el cuerpo es JSON.
-
-`-d` (data)
-Envía datos en el cuerpo (body) de la petición.
-
-- Para JSON, combina con `-H 'Content-Type: application/json'` y pasa el JSON como cadena
-
-- Si omites `-X`, `curl` hará POST automáticamente; para otros métodos con body, usa `-X PUT`.
-
-
 ### Ejemplo
 
 1) #### **POST** `/api/v1/users/` — Crear usuario  
@@ -128,9 +100,36 @@ Envía datos en el cuerpo (body) de la petición.
 
 ## Ejemplos de requests (curl)
 
+### Explicación 
+
+`curl`
+Programa de línea de comandos para hacer peticiones HTTP (y otros protocolos). Permite llamar a tus endpoints desde la terminal.
+
+`-X` (method)
+Indica el método HTTP a usar. Ejemplos: `-X GET`, `-X POST`, `-X PUT`, `-X DELETE`.
+
+Nota: si usas `-d` sin especificar `-X`, curl asume `POST`. Para enviar cuerpo con `PUT`, debes poner `-X PUT`.
+
+`-H` (header)
+Añade un header a la petición, con el formato `Nombre: valor`.
+Puedes repetir `-H` varias veces para múltiples headers.
+
+Ejemplos:
+
+- `-H 'X-API-Key: API_KEY_AQUI'` → envía el API Key.
+
+- `-H 'Content-Type: application/json'` → indica que el cuerpo es JSON.
+
+`-d` (data)
+Envía datos en el cuerpo (body) de la petición.
+
+- Para JSON, combina con `-H 'Content-Type: application/json'` y pasa el JSON como cadena
+
+- Si omites `-X`, `curl` hará POST automáticamente; para otros métodos con body, usa `-X PUT`.
+
 > Reemplaza `API_KEY` por el valor real de tu `.env`.
 
-# Crear (POST)
+### Crear (POST)
 curl -X POST http://127.0.0.1:8000/api/v1/users/ \
   -H 'Content-Type: application/json' \
   -H 'X-API-Key: API_KEY_AQUI' \
@@ -143,11 +142,11 @@ curl -X POST http://127.0.0.1:8000/api/v1/users/ \
     "ZIP": "44100"
   }'
 
-# Obtener (GET)
+### Obtener (GET)
 curl -H 'X-API-Key: API_KEY_AQUI' \
   http://127.0.0.1:8000/api/v1/users/1001
 
-# Actualizar (PUT)
+### Actualizar (PUT)
 curl -X PUT http://127.0.0.1:8000/api/v1/users/1001 \
   -H 'Content-Type: application/json' \
   -H 'X-API-Key: API_KEY_AQUI' \
@@ -156,7 +155,7 @@ curl -X PUT http://127.0.0.1:8000/api/v1/users/1001 \
     "recommendations": ["viajes","café"]
   }'
 
-# Eliminar (DELETE)
+### Eliminar (DELETE)
 curl -X DELETE \
   -H 'X-API-Key: API_KEY_AQUI' \
   http://127.0.0.1:8000/api/v1/users/1001
